@@ -9,9 +9,21 @@
 public class PrimeNumbers {
     public static void main(String [] args){
         System.out.println("This program will print all prime numbers from 0 to 100\n");
-        // for loop repeats 100 times and increments i by 2
-        for(int i=0; i<101; i+=2) {
-            System.out.println(i);
+        int count [] = {2, 3, 5, 7, 11};
+        int notPrime = 0;
+        // for loop repeats 100 times
+        for(int i=2; i<101; i++) {
+            for(int j=0; j<count.length; j++){ //iterates through array containing prime bases
+                if(i%count[j]==0 && i!=count[j]) { //Adds 1 to notPrime if i doesn't meet requirements
+                    notPrime++;
+                }
+            }
+            // If there is no instances of notPrime, then i is a prime number
+            if(notPrime==0){
+                System.out.println(i);
+            }
+            // resets notPrime for next i value
+            notPrime = 0;
         }
         System.out.println("\nThank you for using the program!");
     }
